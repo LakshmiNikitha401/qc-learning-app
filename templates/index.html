@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QC Vocab Learner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
+    <!-- LEARNING SCREEN -->
+    <div class="app-container" id="learning-screen">
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        
+        <h1 id="word-display">Loading...</h1>
+        
+        <div class="meaning-card">
+            <div class="meaning-row">
+                <span class="label">English Definition</span>
+                <span class="value" id="eng-meaning"></span>
+            </div>
+            <div class="divider"></div>
+            <div class="meaning-row">
+                <span class="label">Telugu Meaning</span>
+                <span class="value" id="tel-meaning"></span>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="user-input" placeholder="Type the English word here..." autocomplete="off" spellcheck="false" disabled>
+            <button id="submit-btn" disabled>Verify Word</button>
+        </div>
+
+        <p id="feedback-msg" class="feedback-text"></p>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div class="app-container" id="quiz-screen" style="display: none;">
+        <h2 class="screen-title">Knowledge Check</h2>
+        <p id="quiz-progress" class="screen-subtitle">Question 1 of 3</p>
+        
+        <div class="meaning-card">
+            <h3 id="quiz-question" class="value" style="text-align: center;">Loading question...</h3>
+        </div>
+
+        <div id="quiz-options" class="options-container">
+            <!-- Options will be injected here -->
+        </div>
+        <p id="quiz-feedback" class="feedback-text"></p>
+    </div>
+
+    <!-- MATCHING SCREEN -->
+    <div class="app-container" id="matching-screen" style="display: none;">
+        <h2 class="screen-title">Match the Words</h2>
+        <p class="screen-subtitle">Drag a word to its correct meaning</p>
+        
+        <div class="matching-game">
+            <div class="match-column" id="words-col">
+                <!-- Draggable words -->
+            </div>
+            <div class="match-column" id="meanings-col">
+                <!-- Droppable meanings -->
+            </div>
+        </div>
+        <p id="match-feedback" class="feedback-text"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
