@@ -4,13 +4,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* Google AI Studio uses Google Sans and Roboto */
     font-family: 'Google Sans', 'Roboto', sans-serif;
     user-select: none;
 }
 
 body {
-    /* Deep charcoal background from the screenshot */
     background-color: #131314; 
     color: #e3e3e3;
     display: flex;
@@ -21,7 +19,6 @@ body {
 }
 
 .app-container {
-    /* Slightly lighter charcoal for the main card */
     background-color: #1e1f20;
     padding: 40px 32px;
     border-radius: 16px;
@@ -33,7 +30,6 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Progress Bar */
 .progress-bar-container {
     width: 100%;
     background-color: #333537; 
@@ -44,7 +40,6 @@ body {
 }
 
 .progress-bar {
-    /* The specific Google Blue from your screenshot */
     background-color: #8ab4f8; 
     height: 100%;
     width: 0%;
@@ -52,7 +47,6 @@ body {
     transition: width 0.3s ease;
 }
 
-/* Typography */
 .screen-title {
     text-align: center;
     font-size: 1.5rem;
@@ -66,7 +60,6 @@ body {
     color: #9aa0a6;
     font-size: 0.9rem;
     margin-bottom: 25px;
-    font-weight: 400;
 }
 
 h1 {
@@ -74,13 +67,11 @@ h1 {
     color: #ffffff;
     font-size: 2.2rem;
     font-weight: 500;
-    letter-spacing: 0;
     margin-bottom: 30px;
 }
 
-/* Meaning Card */
 .meaning-card {
-    background-color: #131314; /* Darker inset */
+    background-color: #131314;
     border: 1px solid #333537;
     padding: 24px;
     border-radius: 12px;
@@ -114,7 +105,6 @@ h1 {
     margin: 16px 0;
 }
 
-/* Input & Buttons */
 .input-section {
     display: flex;
     flex-direction: column;
@@ -134,7 +124,6 @@ input {
 }
 
 input:focus {
-    /* Standard Google focus outline */
     border-color: #8ab4f8;
     box-shadow: 0 0 0 2px #1e1f20, 0 0 0 4px #8ab4f8;
 }
@@ -145,7 +134,6 @@ button {
     padding: 16px;
     border-radius: 8px;
     border: none;
-    /* Google Blue button */
     background-color: #8ab4f8; 
     color: #040404; 
     font-size: 1rem;
@@ -154,13 +142,8 @@ button {
     transition: background-color 0.2s ease;
 }
 
-button:hover:not(:disabled) {
-    background-color: #aecbfa;
-}
-
-button:active:not(:disabled) {
-    background-color: #8ab4f8;
-}
+button:hover:not(:disabled) { background-color: #aecbfa; }
+button:active:not(:disabled) { background-color: #8ab4f8; }
 
 button:disabled {
     background-color: #333537;
@@ -168,7 +151,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Quiz Options */
 .options-container {
     display: flex;
     flex-direction: column;
@@ -184,11 +166,8 @@ button:disabled {
     font-weight: 400;
 }
 
-.options-container button:hover:not(:disabled) {
-    background-color: #333537;
-}
+.options-container button:hover:not(:disabled) { background-color: #333537; }
 
-/* Matching Game */
 .matching-game {
     display: flex;
     gap: 16px;
@@ -213,32 +192,12 @@ button:disabled {
     transition: all 0.2s;
 }
 
-.match-item.word {
-    color: #8ab4f8;
-    border-color: #5f6368;
-}
-
-.match-item.meaning {
-    color: #9aa0a6;
-    border-style: dashed;
-}
-
+.match-item.word { color: #8ab4f8; border-color: #5f6368; }
+.match-item.meaning { color: #9aa0a6; border-style: dashed; }
 .match-item.dragging { opacity: 0.5; }
+.match-item.drag-over { border-color: #8ab4f8; background-color: #131314; }
+.match-item.matched { border-color: #81c995; color: #81c995; cursor: default; pointer-events: none; border-style: solid; }
 
-.match-item.drag-over {
-    border-color: #8ab4f8;
-    background-color: #131314;
-}
-
-.match-item.matched {
-    border-color: #81c995;
-    color: #81c995;
-    cursor: default;
-    pointer-events: none;
-    border-style: solid;
-}
-
-/* Feedback */
 .feedback-text {
     margin-top: 20px;
     font-weight: 500;
@@ -246,5 +205,5 @@ button:disabled {
     font-size: 0.95rem;
     min-height: 24px;
 }
-.correct { color: #81c995; } /* Google Success Green */
-.incorrect { color: #f28b82; } /* Google Error Red */
+.correct { color: #81c995; } 
+.incorrect { color: #f28b82; } 
