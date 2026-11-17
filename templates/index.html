@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QC Vocab Learner</title>
+    <title>QC Vocab Pro</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <!-- LEARNING SCREEN -->
     <div class="app-container" id="learning-screen">
+        <!-- Report Assistant Button -->
+        <button onclick="openReportScreen()" style="padding: 8px 12px; font-size: 0.85rem; margin-bottom: 20px; background: transparent; border: 1px solid #5f6368; color: #e3e3e3; align-self: flex-start;">📝 Open Report Assistant</button>
+
         <div class="progress-bar-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
@@ -41,12 +44,12 @@
         <h2 class="screen-title">Knowledge Check</h2>
         <p id="quiz-progress" class="screen-subtitle">Question 1 of 3</p>
         
-        <div class="meaning-card">
-            <h3 id="quiz-question" class="value" style="text-align: center;">Loading question...</h3>
+        <div class="meaning-card" style="text-align: center; padding: 30px 20px;">
+            <h3 id="quiz-question" class="value" style="font-weight: 600;">Loading question...</h3>
         </div>
 
         <div id="quiz-options" class="options-container">
-            <!-- Options will be injected here -->
+            <!-- Options injected here -->
         </div>
         <p id="quiz-feedback" class="feedback-text"></p>
     </div>
@@ -57,14 +60,37 @@
         <p class="screen-subtitle">Drag a word to its correct meaning</p>
         
         <div class="matching-game">
-            <div class="match-column" id="words-col">
-                <!-- Draggable words -->
-            </div>
-            <div class="match-column" id="meanings-col">
-                <!-- Droppable meanings -->
-            </div>
+            <div class="match-column" id="words-col"></div>
+            <div class="match-column" id="meanings-col"></div>
         </div>
         <p id="match-feedback" class="feedback-text"></p>
+    </div>
+
+    <!-- REPORT ASSISTANT SCREEN -->
+    <div class="app-container" id="report-screen" style="display: none;">
+        <h2 class="screen-title">QC Report Assistant</h2>
+        <p class="screen-subtitle">Describe the issue, let AI write the report.</p>
+        
+        <div class="input-section" style="margin-bottom: 20px;">
+            <label class="label" style="color: #e3e3e3; margin-bottom: 5px;">Part Name (Optional)</label>
+            <input type="text" id="report-part" placeholder="e.g., Top Enclosure" style="margin-bottom: 15px;">
+
+            <label class="label" style="color: #e3e3e3; margin-bottom: 5px;">What did you observe? (Defect)</label>
+            <input type="text" id="report-observed" placeholder="e.g., Bore is too small, scratches on fins">
+            
+            <label class="label" style="color: #e3e3e3; margin-bottom: 5px;">What is required? (Spec)</label>
+            <input type="text" id="report-required" placeholder="e.g., 45mm diameter, smooth surface">
+        </div>
+
+        <button id="generate-report-btn" onclick="generateReport()">Generate Report Sentence</button>
+
+        <div id="report-output-box" class="meaning-card" style="display: none; margin-top: 25px; border-color: #8ab4f8;">
+            <span class="label" style="color: #8ab4f8;">Professional QC Sentence:</span>
+            <p id="report-result-text" class="value" style="margin-top: 10px; font-weight: 500;"></p>
+            <button onclick="copyReport()" style="margin-top: 15px; padding: 10px; font-size: 0.9rem;">Copy to Clipboard</button>
+        </div>
+        
+        <button onclick="closeReportScreen()" style="background: transparent; border: 1px solid #5f6368; color: #e3e3e3; margin-top: 20px;">Back to Learning</button>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
